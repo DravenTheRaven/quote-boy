@@ -1,64 +1,31 @@
 @import "custom";
 
-.header {
-  text-align: center;
-}
-
-span {
-  &.dangerText {
-    color: #dc3545;
-  }
-
-  &.infoText {
-    color: #17a2b8;
-    font-weight: bold;
-  }
-}
-
-body {
-  padding: 1.5rem;
-
-}
-
 * {
   box-sizing: border-box;
 }
 
-
-
-#root label {
-
-}
-
 #container {
-background-color: $teal;
+  width: 50%;
+background-color: $gray-300;
 display: grid;
-grid-template-columns: 50% 50%;
-
+grid-template-columns: auto auto auto;
 }
 
-.form-label {
-  background-color: $secondary;
+.form-control {
+  width: 50%;
+
 }
 
 .wrap {
-   display: grid;
-   grid-template-columns: 50% 50%;
+
 }
 
 .out {
-  background-color: #baffc9;
-  grid-template-columns: 50% 50%;
-
+width: 50%;
 }
 
 #customerFacing {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
 
-.flox {
-  background-color: #bae1ff;
 }
 
 #customerFacing p {
@@ -67,10 +34,3 @@ grid-template-columns: 50% 50%;
   padding: 10px;
   margin: 10px;
 }
-
-.col {
-
-  background-color: red;
-}
-
-/* import bootstrap to set changes */
