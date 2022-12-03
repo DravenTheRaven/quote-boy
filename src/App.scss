@@ -14,3 +14,63 @@ span {
     font-weight: bold;
   }
 }
+
+body {
+  padding: 1.5rem;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+#root label {
+
+}
+
+#container {
+background-color: $teal;
+display: grid;
+grid-template-columns: 50% 50%;
+
+}
+
+.form-label {
+  background-color: $secondary;
+}
+
+.wrap {
+   display: grid;
+   grid-template-columns: 50% 50%;
+}
+
+.out {
+  background-color: #baffc9;
+  grid-template-columns: 50% 50%;
+
+}
+
+#customerFacing {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.flox {
+  background-color: #bae1ff;
+}
+
+#customerFacing p {
+  background-color: #fdcae1;
+    font-family: helvetica;
+  padding: 10px;
+  margin: 10px;
+}
+
+.col {
+
+  background-color: red;
+}
+
+/* import bootstrap to set changes */

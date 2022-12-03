@@ -1,4 +1,6 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 //import { useState } from 'react';
 
 function priceMargin(profitMargin) {
@@ -6,8 +8,9 @@ function priceMargin(profitMargin) {
 
 }
 
-function printing() {
-  
+function printing({ printingCost }) {
+  let costLog = [];
+
 }
 
 

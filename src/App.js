@@ -3,15 +3,16 @@
 import React from "react";
 import { useState } from 'react';
 import * as Utils from './utils.js'
-import 'bootstrap/dist/css/bootstrap.css';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
-
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function Quote() {
   const [state, setState] = useState({
     blankCost: "",
+    cost2XL: "",
+    cost3XL: "",
     printingCost: "10",
     price: 0,
     setups: 0,
@@ -27,10 +28,8 @@ function Quote() {
     setState({
       ...state,
       [e.target.name]: value
-
     });
       console.log(value)
-
   }
 
   function handleCheck(e) {
@@ -45,129 +44,139 @@ function Quote() {
   //Utils.setPiece(15, 5, 144);
         console.log(state)
   return(
-<div className="wrap">
-  <div id="container">
-  <Form>
-    <BlankCost handleChange={handleChange}
-               blankCost={state.blankCost}
-               name="blankCost"
-               className="flox"
-               />
+<div className="wrap text-bg-primary">
+  <div id="container" >
+
+    <InputVal handleChange={handleChange}
+              name="blankCost"
+              value={state.blankCost}
+              text="Blank Cost" />
+    <Form.Group>
     <Oversize handleChange={handleChange}
+              inputVal={InputVal}
               checkOver={state.check2XL}
               name="check2XL"
               handleCheck={handleCheck}
-              size="2XL"
+              text="2XL"
+              value={state.cost2XL}
               className="flox"
               />
     <Oversize handleChange={handleChange}
+              inputVal={InputVal}
               checkOver={state.check3XL}
               name="check3XL"
               handleCheck={handleCheck}
-              size="3XL"
+              text="3XL"
+              value={state.cost3XL}
               className="flox"
               />
-    <Quantity handleChange={handleChange}
-              quantity={state.quantity}
+
+    </Form.Group>
+    <InputVal handleChange={handleChange}
               name="quantity"
-              className="flox"
+              value={state.quantity}
+              text="Quantity"
               />
     <Printing  />
-    <SetupCost handleChange={handleChange}
-               setupCost={state.setupCost}
-               className="flox"
-               />
-    <Setups handleChange={handleChange}
-            setups={state.setups}
-            />
+    <InputVal handleChange={handleChange}
+              name="setupCost"
+              value={state.setupCost}
+              text="Setup Cost"
+              />
+    <InputVal handleChange={handleChange}
+              name="setups"
+              value={state.setups}
+              text="Number of Setups"
+              />
     <SetPiece handleChange={handleChange}
-                    setupCost={state.setupCost}
-                    setups={state.setups}
-                    quantity={state.quantity}
-
-                    name="setUpPerPiece"
-                    />
-
-    <Margin className="flox"
-            handleChange={handleChange}/>
-
+              setupCost={state.setupCost}
+              setups={state.setups}
+              quantity={state.quantity}
+              name="setUpPerPiece"
+              />
+    <InputVal handleChange={handleChange}
+              name="profitMargin"
+              value={state.profitMargin}
+              text="Profit Margin"
+              />
     <Price blankCost={state.blankCost}
            setupCost={state.setupCost}
            printingCost={state.printingCost}
            setups={state.setups}
            quantity={state.quantity}
            profitMargin={state.profitMargin}
-/>
+           value={state.price}
+           />
     <button className="flox" >{`Submit`}</button>
-    </Form>
   </div>
   <div className="out">
     <Output quantity={state.quantity}/>
-
   </div>
 </div>
-
-  )
-
-}
-
-
-function BlankCost({ blankCost, handleChange }) {
-  return(
-  <>
-
-  <Form.Group controlId="blankCost">
-   <Form.Label>{`Blank Cost: `}</Form.Label>
-     <Form.Control type="number"
-            step="0.01"
-            name="blankCost"
-            size="sm"
-            value={blankCost}
-            onChange={handleChange}
-            />
-     <p>{blankCost}</p>
-</Form.Group>
-
-
-  </>
   )
 }
 
-function Oversize({ size, handleChange, handleCheck, checkOver }) {
+function InputVal({value, handleChange, name, text }) {
+  return (
+    <>
+    <Form.Group controlId={name}>
+    <Form.Label >{`${text}: `}</Form.Label>
+    <Form.Control name={name}
+                  value={value}
+                  onChange={handleChange}
+                  text={text}
+                  size="sm"
+                  className='w-25'
+                  />
+    </Form.Group>
+</>
+  )
+}
+
+function Oversize({ value, text, handleChange, handleCheck, checkOver, inputVal, name }) {
 
   return (
   <>
-   <label htmlFor={`check${size}`}>{`${size} `}
-     <input type="checkbox"
-            id={`check${size}`}
-            name={`check${size}`}
+
+  <Form.Group as={Row}>
+
+  <Form.Group  as={Row} controlId={`check${text}`}>
+
+  <Col  sm={"auto"}>
+   <Form.Label >{`${text} `}</Form.Label>
+   </Col>
+   <Col  sm={"auto"}>
+     <Form.Check
+            name={`check${text}`}
             value={checkOver}
             onChange={handleCheck}
             />
-   </label>
-   {checkOver &&
-   <label htmlFor={`${size}Cost`}>{`${size} Cost: `}
-     <input type="number"
-            step="0.01"
-            name={`${size}Cost`}
-            size="5"
-            />
-   </label>
-    }
-  </>
-  )
-}
+    </Col>
 
-function Quantity({ quantity, handleChange }) {
-  return(
-  <>
-  <label htmlFor="quantity">{`Quantity: `}
-    <input type="number"
-           name="quantity"
-           value={quantity}
-           onChange={handleChange} size="5"/>
-      <p>{quantity}</p>
-  </label>
+</Form.Group>
+
+   {checkOver &&
+     <>
+
+  <Form.Group as={Row}   controlId={`cost${text}`}>
+  <Col sm={"auto"}>
+   <Form.Label>{`${text} Cost: `}</Form.Label>
+   </Col>
+   <Col sm={"auto"}>
+     <Form.Control size="sm"
+
+
+                   name={`cost${text}`}
+                   value={value}
+                   onChange={handleChange}
+                   />
+      </Col>
+  </Form.Group>
+
+      </>
+    }
+</Form.Group>
+
   </>
   )
 }
@@ -175,77 +184,37 @@ function Quantity({ quantity, handleChange }) {
 function Printing() {
   return(
   <>
-  <label htmlFor="printingCost">{`Printing Cost: `}
-    <input type="number" step="0.01" name="printingCost"  size="5" />
-      <p>"L"</p>
-    </label>
+  <Form.Group>
+    <Form.Label htmlFor="printingCost">{`Printing Cost: `}</Form.Label>
+    <Form.Control  className='w-25'  name="printingCost"  size="sm" />
+  </Form.Group>
   </>
   )
 }
 
-function SetupCost({ setupCost, handleChange }) {
-  return(
-  <>
-  <label htmlFor="setupCost">{`Setup Cost: `}
-    <input type="number"
-           step="0.01"
-           name="setupCost"
-           id="setupCost"
-           value={setupCost}
-           onChange={handleChange}
-           size="5"
-           />
-      <p>{setupCost}</p>
-  </label>
-  </>
-  )
-}
 
-function Setups({ setups, handleChange }) {
-  return(
-  <>
-  <label htmlFor="setups">{`Setups: `}
-    <input type="number"
-           name="setups"
-           id="setups"
-           value={setups}
-           onChange={handleChange}
-           size="5"
-           />
-      <p>{setups}</p>
-  </label>
-  </>
-  )
-}
 
 function SetPiece({ setupCost, setups, quantity, handleChange }) {
    let setUpPerPiece = ((parseFloat(setupCost) * parseFloat(setups)) / parseFloat(quantity))
 
   return (
     <>
-    <label htmlFor="setUpPerPiece">Setup Per Piece:
-    <input  name="setUpPerPiece"
+    <Form.Group>
+    <Form.Label htmlFor="setUpPerPiece">Setup Per Piece:</Form.Label>
+    <Form.Control  name="setUpPerPiece"
             id="setUpPerPiece"
             value={setUpPerPiece}
             onChange={handleChange}
-            size="5"
+            size="sm"
+            className='w-25'
             readOnly
             />
-    <p></p>
-    </label>
+    </Form.Group>
     </>
   )
 }
 
-function Margin({ handleChange }) {
-  return(
-  <>
-  <label htmlFor="profitMargin">{`Profit Margin: `}
-    <input type="number" name="profitMargin" onChange={handleChange} size="5"/>
-  </label>
-  </>
-  )
-}
+
 
 function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quantity }) {
   const setUpPerPiece = ((parseFloat(setupCost) * parseFloat(setups)) / parseFloat(quantity))
@@ -254,10 +223,24 @@ function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quant
   const price = cost / finalMargin
   return (
   <>
-  <p>{`Total Cost: ${cost}`}</p>
-
-
-  <p>{`Price: ${price}`}</p>
+  <Form.Group controlId="totalCost">
+  <Form.Label>Total Cost:</Form.Label>
+  <Form.Control  name="totalCost"
+                 value={cost}
+                 size="sm"
+                 className='w-25'
+                 readOnly
+                 />
+  </Form.Group>
+  <Form.Group controlId="price">
+    <Form.Label>Price:</Form.Label>
+    <Form.Control  name="price"
+                  value={price}
+                  size="sm"
+                  className='w-25'
+                  readOnly
+                  />
+  </Form.Group>
   </>
   )
 }
