@@ -1,26 +1,24 @@
 import React from 'react'
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import YesNoCheck from './YesNoCheck.js'
+import InputVal from './InputVal.js'
 import '../App.scss';
 
-function Printing() {
+function Printing({ handleChange, numberOfLocations, printingCost}) {
+
   return(
   <>
-    <div className="border border-dark border-5">
-      <Row>
-        <Col>
-          <Form.Group className="border border-dark border-5" controlId="printingCost">
-            <Form.Label>{`Printing Cost: `}</Form.Label>
-            <Form.Control name="printingCost"  className="w-25" size="sm" />
-          </Form.Group>
-        </Col>
-        <Col>
-          <YesNoCheck text="Is there another location?"/>
-        </Col>
-      </Row>
+    <div>
+      <InputVal name='printingCost'
+                text='Location Cost'
+                value={printingCost}
+                handleChange={handleChange}
+                />
+                <Button variant="dark"
+                        as="input"
+                        type="submit"
+                        className="w-25"
+                        value="Submit"
+                        />{' '}
     </div>
   </>
   )

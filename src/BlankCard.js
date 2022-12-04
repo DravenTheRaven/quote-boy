@@ -5,18 +5,18 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import './App.scss';
 
-function BlankCard({ blankCost, cost2XL, cost3XL, handleChange, handleCheck, check2XL, check3XL }) {
+function BlankCard({ blankCost, cost2XL, cost3XL, handleChange, handleCheck, handleBlank, check2XL, check3XL }) {
 
   return (
   <Card className="border border-dark">
     <Form.Group className="border border-dark">
-      <InputVal handleChange={handleChange}
+      <InputVal handleChange={handleBlank}
                 name="blankCost"
                 blankCost={blankCost}
                 value={blankCost}
                 text="Blank Cost"
                 />
-      <Oversize handleChange={handleChange}
+      <Oversize handleChange={handleBlank}
                 checkOver={check2XL}
                 name="check2XL"
                 handleCheck={handleCheck}
@@ -24,7 +24,7 @@ function BlankCard({ blankCost, cost2XL, cost3XL, handleChange, handleCheck, che
                 value={cost2XL}
                 className="flox"
                 />
-      <Oversize handleChange={handleChange}
+      <Oversize handleChange={handleBlank}
                 checkOver={check3XL}
                 name="check3XL"
                 handleCheck={handleCheck}

@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from 'react';
 import Price from './components/Price.js'
 import './App.scss';
 

@@ -1,7 +1,6 @@
 import React from "react";
 import InputVal from './components/InputVal.js'
 import SetPiece from './components/SetPiece.js'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './App.scss';
 

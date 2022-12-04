@@ -13,7 +13,13 @@ function printing({ printingCost }) {
 
 }
 
-
+function loopLoc({ numberOfLocations }) {
+  let i = 0;
+  while {
+    i++;
+    
+  }
+}
 
 function getPrice(cost, profitMargin) {
   let price = parseFloat(cost) / parseFloat(profitMargin);

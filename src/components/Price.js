@@ -23,8 +23,8 @@ function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quant
                         onChange={handleChange}
                         readOnly
                         />
-          <p>{cost}</p>
-          <p>{finalPrice}</p>
+          {Number.isNaN(finalPrice) !== true && <p>{cost}</p>}
+          {Number.isNaN(finalPrice) !== true && <p>{finalPrice}</p>}
         </Col>
       </Row>
     </Form.Group>
