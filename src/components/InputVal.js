@@ -7,7 +7,7 @@ import '../App.scss';
 function InputVal({value, handleChange, name, text }) {
   return (
     <>
-    <Form.Group  controlId={name}>
+    <Form.Group  controlId={name} className="border border-dark border-5">
     <Row>
     <Col xs={4}>
     <Form.Label >{`${text}: `}</Form.Label>

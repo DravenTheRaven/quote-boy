@@ -7,7 +7,7 @@ function SetPiece({ setupCost, setups, quantity, handleChange }) {
 
   return (
     <>
-    <Form.Group>
+    <Form.Group className="border border-dark border-5">
     <Form.Label htmlFor="setUpPerPiece">Setup Per Piece:</Form.Label>
     <Form.Control  name="setUpPerPiece"
             id="setUpPerPiece"

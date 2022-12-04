@@ -4,12 +4,17 @@ import Printing from './components/Printing.js'
 import SetPiece from './components/SetPiece.js'
 import InputVal from './components/InputVal.js'
 import Oversize from './components/Oversize.js'
+import BlankCard from './BlankCard.js'
+import SetupCard from './SetupCard.js'
+import PriceCard from './PriceCard.js'
+import PrintingCard from './PrintingCard.js'
 import Price from './components/Price.js'
 import Output from './components/Output.js'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 import './App.scss';
 
 
@@ -27,6 +32,7 @@ function Quote() {
     check3XL: "",
   });
 
+
   function handleChange(e) {
     const value = e.target.value;
     setState({
@@ -34,6 +40,7 @@ function Quote() {
       [e.target.name]: value
     });
       console.log(value)
+
   }
 
   function handleCheck(e) {
@@ -44,70 +51,18 @@ function Quote() {
     })
   }
 
-        console.log(state)
+
   return(
 <div >
   <div id="container" >
-    <Form.Group>
-    <InputVal handleChange={handleChange}
-              name="blankCost"
-              value={state.blankCost}
-              text="Blank Cost" />
+  <BlankCard blankCost={state.blankCost}
+             cost2XL={state.cost2XL}
+             cost3XL={state.cost3XL}
+             onChange={handleChange}/>
+  <SetupCard />
+  <PrintingCard />
+  <PriceCard />
 
-    <Oversize handleChange={handleChange}
-              inputVal={InputVal}
-              checkOver={state.check2XL}
-              name="check2XL"
-              handleCheck={handleCheck}
-              text="2XL"
-              value={state.cost2XL}
-              className="flox"
-              />
-    <Oversize handleChange={handleChange}
-              inputVal={InputVal}
-              checkOver={state.check3XL}
-              name="check3XL"
-              handleCheck={handleCheck}
-              text="3XL"
-              value={state.cost3XL}
-              className="flox"
-              />
-    </Form.Group>
-    <InputVal handleChange={handleChange}
-              name="quantity"
-              value={state.quantity}
-              text="Quantity"
-              />
-    <Printing  />
-    <InputVal handleChange={handleChange}
-              name="setupCost"
-              value={state.setupCost}
-              text="Setup Cost"
-              />
-    <InputVal handleChange={handleChange}
-              name="setups"
-              value={state.setups}
-              text="Number of Setups"
-              />
-    <SetPiece handleChange={handleChange}
-              setupCost={state.setupCost}
-              setups={state.setups}
-              quantity={state.quantity}
-              name="setUpPerPiece"
-              />
-    <InputVal handleChange={handleChange}
-              name="profitMargin"
-              value={state.profitMargin}
-              text="Profit Margin"
-              />
-    <Price blankCost={state.blankCost}
-           setupCost={state.setupCost}
-           printingCost={state.printingCost}
-           setups={state.setups}
-           quantity={state.quantity}
-           profitMargin={state.profitMargin}
-           value={state.price}
-           />
      <Button variant="dark" as="input" type="submit" className="w-25" value="Submit" />{' '}
   </div>
 </div>

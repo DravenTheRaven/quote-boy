@@ -12,7 +12,7 @@ function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quant
   return (
   <>
 
-  <Form.Group controlId="price">
+  <Form.Group controlId="price" className="border border-secondary border-5">
   <Row>
   <Col xs={4}>
     <Form.Label>Price:</Form.Label>

@@ -8,9 +8,10 @@ import '../App.scss';
 function Printing() {
   return(
   <>
+  <div className="border border-dark border-5">
   <Row>
     <Col>
-      <Form.Group>
+      <Form.Group className="border border-dark border-5">
         <Form.Label htmlFor="printingCost">{`Printing Cost: `}</Form.Label>
         <Form.Control name="printingCost"  className="w-25" size="sm" />
       </Form.Group>
@@ -20,6 +21,7 @@ function Printing() {
       <LocationCheck />
     </Col>
   </Row>
+  </div>
   </>
   )
 }
@@ -29,6 +31,7 @@ function Printing() {
 function LocationCheck() {
   return (
     <>
+    <div className="border border-dark">
     <Row>
       <Col>
       <Form.Label>Is there another location?</Form.Label>
@@ -43,6 +46,7 @@ function LocationCheck() {
         <Button variant="dark"  size="sm">No</Button>{' '}
       </Col>
     </Row>
+    </div>
     </>
   )
 }
