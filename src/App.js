@@ -4,17 +4,15 @@ import Quote from './Quote.js';
 import Output from './components/Output.js'
 import './App.scss';
 
-
-
 function App() {
   return (
-    <div>
+  <div>
     <Quote />
-  <div className="out">
-    <Output />
-    <JobInfo />
+    <div className="out">
+      <Output />
+      <JobInfo />
+    </div>
   </div>
-</div>
   )
 }
 
