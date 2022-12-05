@@ -2,7 +2,7 @@ import React from "react";
 import Price from './components/Price.js'
 import './App.scss';
 
-function PriceCard({ blankCost, setupCost, printingCost, setups, quantity, profitMargin, finalPrice, handleChange, handleOutput }) {
+function PriceCard({ blankCost, setupCost, printingCost, setups, quantity, profitMargin, finalPrice, handleChange, handleOutput, totalPrice, handlePriceChange }) {
 
 return (
   <Price blankCost={blankCost}
@@ -12,7 +12,8 @@ return (
          quantity={quantity}
          profitMargin={profitMargin}
          price={finalPrice}
-         handleChange={handleChange}
+         totalPrice={totalPrice}
+         handleChange={handlePriceChange}
          handleOutput={handleOutput}
          />
        )

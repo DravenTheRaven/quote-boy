@@ -4,11 +4,11 @@ import SetPiece from './components/SetPiece.js'
 import Card from 'react-bootstrap/Card';
 import './App.scss';
 
-function SetupCard({ handleChange, quantity, setups, setupCost }) {
+function SetupCard({ handleChange, quantity, setups, setupCost, handlePriceChange }) {
 
   return (
     <Card>
-      <InputVal handleChange={handleChange}
+      <InputVal handleChange={handlePriceChange}
                 name="quantity"
                 value={quantity}
                 text="Quantity"

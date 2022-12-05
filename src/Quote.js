@@ -9,7 +9,7 @@ import PrintingCard from './PrintingCard.js'
 import Button from 'react-bootstrap/Button';
 import './App.scss';
 
-function Quote({ handleOutput} ) {
+function Quote({ handleOutput, handlePriceChange, quantity, totalPrice }) {
   const [blank, setBlank] = useState({
     blankCost: "",
     cost2XL: "",
@@ -23,7 +23,6 @@ function Quote({ handleOutput} ) {
     setups: "",
     setupCost: "",
     profitMargin: "",
-    quantity: "",
   });
 
   const [checks, setChecks] = useState({
@@ -93,9 +92,10 @@ console.log(show)
         {show === 2 &&
           <div className="quoteCard">
             <SetupCard handleChange={handleChange}
+                       handlePriceChange={handlePriceChange}
                        setupCost={state.setupCost}
                        setups={state.setups}
-                       quantity={state.quantity}
+                       quantity={quantity}
                        />
           </div>
           }
@@ -113,12 +113,14 @@ console.log(show)
             <PriceCard blankCost={blank.blankCost}
                        setupCost={state.setupCost}
                        setups={state.setups}
-                       quantity={state.quantity}
+                       quantity={quantity}
                        printingCost={state.printingCost}
                        profitMargin={state.profitMargin}
                        price={state.finalPrice}
+                       totalPrice={totalPrice}
                        handleChange={handleChange}
                        handleOutput={handleOutput}
+                       handlePriceChange={handlePriceChange}
                       />
           </div>
           }
@@ -130,6 +132,7 @@ console.log(show)
                     className="w-50"
                     value="Go Back"
                     onClick={handleLast}
+                    readOnly
                     />{' '}
           </div>
         </Col>
@@ -141,6 +144,7 @@ console.log(show)
                     className="w-50"
                     value="Continue"
                     onClick={handleNext}
+                    readOnly
                     />{' '}
           </div>
         </Col>

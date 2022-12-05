@@ -7,21 +7,7 @@ import Button from 'react-bootstrap/Button';
 import InputVal from './components/InputVal.js'
 import './App.scss';
 
-function JobInfo({ handleQuote }) {
-  const [state, setState] = useState({
-    customer: "",
-    jobName: "",
-    itemNumber: "",
-    itemColor: "",
-  });
-
-  function handleChange(e) {
-    const value = e.target.value;
-    setState({
-      ...state,
-      [e.target.name]: value
-    });
-  }
+function JobInfo({ handleQuote, customer, jobName, itemNumber, itemColor, handleChange }) {
 
   return (
     <div className="container border border-dark">
@@ -30,16 +16,16 @@ function JobInfo({ handleQuote }) {
         <Col>
           <InputVal handleChange={handleChange}
                     name="customer"
-                    blankCost={state.customer}
-                    value={state.customer}
+                    blankCost={customer}
+                    value={customer}
                     text="Customer"
                     />
         </Col>
         <Col>
           <InputVal handleChange={handleChange}
                     name="jobName"
-                    blankCost={state.jobName}
-                    value={state.jobName}
+                    blankCost={jobName}
+                    value={jobName}
                     text="Job Name"
                     />
         </Col>
@@ -48,16 +34,16 @@ function JobInfo({ handleQuote }) {
         <Col>
           <InputVal handleChange={handleChange}
                     name="itemNumber"
-                    blankCost={state.itemNumber}
-                    value={state.itemNumber}
+                    blankCost={itemNumber}
+                    value={itemNumber}
                     text="Item Number"
                     />
         </Col>
         <Col>
           <InputVal handleChange={handleChange}
                     name="itemColor"
-                    blankCost={state.itemColor}
-                    value={state.itemColor}
+                    blankCost={itemColor}
+                    value={itemColor}
                     text="Item Color"
                     />
         </Col>
