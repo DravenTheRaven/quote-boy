@@ -31,6 +31,8 @@ function Quote() {
     check3XL: false,
   });
 
+  const [show, setShow] = useState(1);
+
   function handleChange(e) {
     const value = e.target.value;
     setState({
@@ -55,51 +57,95 @@ console.log(blank)
       [e.target.name]: checked
     })
   }
-    console.log(checks)
 
+const handleNext = () => {
+ if(show===4) {
+    setShow(4)
+  } else {
+  setShow(show + 1)
+  }
+}
+
+const handleLast = () => {
+ if(show===1) {
+    setShow(1)
+  } else {
+  setShow(show - 1)
+  }
+}
+console.log(show)
   return(
-    <div >
+    <div id="wrap">
       <div id="container" >
-        <BlankCard blankCost={blank.blankCost}
-                   cost2XL={blank.cost2XL}
-                   cost3XL={blank.cost3XL}
-                   check2XL={checks.check2XL}
-                   check3XL={checks.check3XL}
-                   handleChange={handleChange}
-                   handleCheck={handleCheck}
-                   handleBlank={handleBlank}
-                   />
-        <SetupCard handleChange={handleChange}
-                   setupCost={state.setupCost}
-                   setups={state.setups}
-                   quantity={state.quantity}
-                   />
-        <PrintingCard handleChange={handleChange}
-                      profitMargin={state.profitMargin}
-                      numberOfLocations={state.numberOfLocations}
-                      printingCost={state.printingCost}
-                      />
-        <Row>
-          <Col>
+        {show === 1 &&
+          <div className="quoteCard">
+            <BlankCard blankCost={blank.blankCost}
+                       cost2XL={blank.cost2XL}
+                       cost3XL={blank.cost3XL}
+                       check2XL={checks.check2XL}
+                       check3XL={checks.check3XL}
+                       handleChange={handleChange}
+                       handleCheck={handleCheck}
+                       handleBlank={handleBlank}
+                       />
+          </div>
+          }
+        {show === 2 &&
+          <div className="quoteCard">
+            <SetupCard handleChange={handleChange}
+                       setupCost={state.setupCost}
+                       setups={state.setups}
+                       quantity={state.quantity}
+                       />
+          </div>
+          }
+        {show === 3 &&
+          <div className="quoteCard">
+            <PrintingCard handleChange={handleChange}
+                          profitMargin={state.profitMargin}
+                          numberOfLocations={state.numberOfLocations}
+                          printingCost={state.printingCost}
+                          />
+          </div>
+          }
+        {show === 4 &&
+          <div className="quoteCard">
             <PriceCard blankCost={blank.blankCost}
-                      setupCost={state.setupCost}
-                      setups={state.setups}
-                      quantity={state.quantity}
-                      printingCost={state.printingCost}
-                      profitMargin={state.profitMargin}
-                      price={state.finalPrice}
-                      handleChange={handleChange}
+                       setupCost={state.setupCost}
+                       setups={state.setups}
+                       quantity={state.quantity}
+                       printingCost={state.printingCost}
+                       profitMargin={state.profitMargin}
+                       price={state.finalPrice}
+                       handleChange={handleChange}
                       />
+          </div>
+          }
+      <Row className="h-25">
+        <Col className="h-50">
+          <div className="quoteButtonContainer">
+            <Button variant="dark"
+                    as="input"
+                    className="w-50"
+                    value="Go Back"
+                    onClick={handleLast}
+                    />{' '}
+          </div>
+        </Col>
+        <Col className="h-50">
+          <div className="quoteButtonContainer">
             <Button variant="dark"
                     as="input"
                     type="submit"
-                    className="w-25"
-                    value="Submit"
+                    className="w-50"
+                    value="Continue"
+                    onClick={handleNext}
                     />{' '}
-          </Col>
-        </Row>
-      </div>
+          </div>
+        </Col>
+      </Row>
     </div>
+  </div>
   )
 }
 

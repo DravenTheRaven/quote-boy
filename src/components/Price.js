@@ -11,8 +11,8 @@ function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quant
   finalPrice = cost / finalMargin;
   return (
   <>
-    <Form.Group controlId="price" className="border border-secondary border-5">
-      <Row>
+    <Form.Group controlId="price" className="border border-secondary border-5 h-50">
+      <Row >
         <Col xs={4}>
           <Form.Label>Price:</Form.Label>
         </Col>

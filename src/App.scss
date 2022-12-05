@@ -4,33 +4,50 @@
   box-sizing: border-box;
 }
 
+#appContain {
+  border: 5px solid green;
+  height: 100vh;
+
+}
+
+.appWrap {
+  border: 5px solid $secondary;
+  height: 50%;
+  width: 35%;
+  margin: auto;
+  margin-top: 10%;
+}
+
+#wrap {
+  height: 100%;
+  width: 100%;
+  border: 2px solid orange;
+}
+
 #container {
-  width: 75%;
-background-color: $gray-300;
-display: grid;
-grid-template-columns: auto auto auto;
+  height: 100%;
+  width: 100%;
+  border: 2px solid $danger;
 }
 
-.form-control {
-  width: 50%;
-
+#outputWrap {
+  display: none;
 }
 
-.wrap {
-
+#jobinfoWrap {
+  display: none;
 }
 
-.out {
-width: 50%;
+.quoteCard {
+  height: 85%;
+  border: solid 2px purple;
 }
 
-#customerFacing {
 
-}
 
-#customerFacing p {
-  background-color: #fdcae1;
-    font-family: helvetica;
-  padding: 10px;
-  margin: 10px;
+.quoteButtonContainer {
+  border: 2px solid $info;
+  height: 100%;
+
+
 }

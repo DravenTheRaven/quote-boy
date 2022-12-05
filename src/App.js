@@ -6,13 +6,17 @@ import './App.scss';
 
 function App() {
   return (
-  <div>
+    <div id="appContain">
+  <div className="appWrap" id="quoteWrap">
     <Quote />
-    <div className="out">
+  </div>
+    <div className="appWrap" id="outputWrap">
       <Output />
+    </div>
+    <div className="appWrap" id="jobinfoWrap">
       <JobInfo />
     </div>
-  </div>
+</div>
   )
 }
 
