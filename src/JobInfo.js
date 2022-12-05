@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import InputVal from './components/InputVal.js'
 import './App.scss';
 
-function JobInfo() {
+function JobInfo({ handleQuote }) {
   const [state, setState] = useState({
     customer: "",
     jobName: "",
@@ -62,7 +62,7 @@ function JobInfo() {
                     />
         </Col>
       </Row>
-      <Button>Continue</Button>
+      <Button onClick={handleQuote}>Continue</Button>
     </div>
   )
 }

@@ -1,10 +1,11 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import '../App.scss';
 
-function Output({ quantity }) {
+function Output({ quantity, handleJobView }) {
   return(
     <div id="customerFacing">
       <Row>
@@ -23,6 +24,7 @@ function Output({ quantity }) {
           </ListGroup>
         </Col>
       </Row>
+      <Button onClick={handleJobView}>New Quote</Button>
     </div>
   )
 }

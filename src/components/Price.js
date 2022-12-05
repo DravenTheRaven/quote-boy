@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import '../App.scss';
 
-function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quantity, handleChange, finalPrice }) {
+function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quantity, handleChange, finalPrice, handleOutput }) {
   const setUpPerPiece = ((parseFloat(setupCost) * parseFloat(setups)) / parseFloat(quantity));
   const cost = (parseFloat(blankCost) + parseFloat(setUpPerPiece) + parseFloat(printingCost));
   const finalMargin = (1 - (parseFloat(profitMargin) / 100));
@@ -28,6 +29,7 @@ function Price({ blankCost, printingCost, setups, setupCost, profitMargin, quant
         </Col>
       </Row>
     </Form.Group>
+    <Button onClick={handleOutput}>Continue</Button>
   </>
   )
 }

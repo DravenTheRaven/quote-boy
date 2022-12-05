@@ -9,7 +9,7 @@ import PrintingCard from './PrintingCard.js'
 import Button from 'react-bootstrap/Button';
 import './App.scss';
 
-function Quote() {
+function Quote({ handleOutput} ) {
   const [blank, setBlank] = useState({
     blankCost: "",
     cost2XL: "",
@@ -118,6 +118,7 @@ console.log(show)
                        profitMargin={state.profitMargin}
                        price={state.finalPrice}
                        handleChange={handleChange}
+                       handleOutput={handleOutput}
                       />
           </div>
           }
