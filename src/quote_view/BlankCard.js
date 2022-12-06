@@ -1,11 +1,13 @@
 import React from "react";
-import InputVal from './components/InputVal.js'
-import Oversize from './components/Oversize.js'
+import InputVal from '../components/InputVal.js'
+import Button from 'react-bootstrap/Button';
+import Oversize from '../components/Oversize.js'
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import './App.scss';
+import '../App.scss';
 
-function BlankCard({ blankCost, cost2XL, cost3XL, handleChange, handleCheck, handleBlank, check2XL, check3XL }) {
+function BlankCard({ blankCost, cost2XL, cost3XL, check2XL, check3XL, handleCheck, handleBlank, showContinue, handleShowContinue }) {
+console.log(showContinue)
 
   return (
   <Card className="border border-dark">
@@ -32,8 +34,19 @@ function BlankCard({ blankCost, cost2XL, cost3XL, handleChange, handleCheck, han
                 value={cost3XL}
                 className="flox"
                 />
+                  <Button onClick={handleShowContinue}>Save</Button>
       </Form.Group>
+
+<div className="quoteButtonContainer">
+{showContinue === true &&
+  <div className="quoteButtonContainer">
+  <p>{`${showContinue}`}</p>
+    <p>{`saved blank cost ${blankCost}`}</p>
+  </div>
+}
+</div>
     </Card>
+
   )
 }
 

@@ -5,25 +5,30 @@ import Form from 'react-bootstrap/Form';
 import InputVal from './InputVal.js'
 import '../App.scss';
 
-function Printing({ handleChange, numberOfLocations, printingCost, showTotal, handleShowTotal}) {
+function Printing({ handleShowContinue, printingCost, handleShowTotal, showTotal, handlePrintingCost }) {
   let locationNumber = 1;
   const [holdArr, setHoldArr] =useState ([]);
   const [showButton, setShowButton] = useState(true);
   const [holdVal, setHoldVal] = useState(0);
 
-  const handleLocation = () => {
-
+  function handleLocation() {
+    handlePrintingCost(holdVal);
     holdArr.concat(parseFloat(holdVal));
     setShowButton(false);
     setHoldArr([
-      ...holdArr, {id: locationNumber++, cost: parseFloat(holdVal)}
+      ...holdArr, {
+        id: locationNumber++,
+        cost: parseFloat(holdVal),
+      }
     ])
-setHoldVal("")
+    setHoldVal("");
   }
+
   console.log(holdArr.map(location => location.cost ))
+  console.log(printingCost)
+
   const handleNewLocation = () => {
     setShowButton(true);
-
   }
 
   function handleHoldVal(e) {

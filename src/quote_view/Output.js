@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import '../App.scss';
 
-function Output({ quantity, handleJobView, customer, jobName, itemNumber, itemColor }) {
+function Output({ quantity, handleJobView, customer, jobName, itemNumber, itemColor, totalPrice }) {
   return(
     <div id="customerFacing">
       <Row>
@@ -20,7 +20,7 @@ function Output({ quantity, handleJobView, customer, jobName, itemNumber, itemCo
           <ListGroup>
             <ListGroup.Item>{`Color: ${itemColor}`}</ListGroup.Item>
             <ListGroup.Item>{`Quantity: ${quantity}`}</ListGroup.Item>
-            <ListGroup.Item>{`Price: `}</ListGroup.Item>
+            <ListGroup.Item>{`Price: ${totalPrice}`}</ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>

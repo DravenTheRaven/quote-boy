@@ -30,14 +30,18 @@
   border: 2px solid $danger;
 }
 
-
+.form-control{
+  width: 30%;
+}
 
 .quoteCard {
   height: 85%;
   border: solid 2px purple;
 }
 
-
+#buttonWrap {
+  height: 15%
+}
 
 .quoteButtonContainer {
   border: 2px solid $info;

@@ -4,8 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import InputVal from './components/InputVal.js'
-import './App.scss';
+import InputVal from '../components/InputVal.js'
+import '../App.scss';
 
 function JobInfo({ handleQuote, customer, jobName, itemNumber, itemColor, handleChange }) {
 

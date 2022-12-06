@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from 'react';
-import JobInfo from './JobInfo.js'
-import Quote from './Quote.js';
-import Output from './components/Output.js'
+import JobInfo from './quote_view/JobInfo.js'
+import Quote from './quote_view/Quote.js';
+import Output from './quote_view/Output.js'
+
 import './App.scss';
 
 function App() {
   const [view, setView] = useState('jobInfoView');
+  const [totalPrice, setTotalPrice] = useState(0);
   const [job, setJob] = useState({
       customer: "",
       jobName: "",
@@ -15,8 +17,8 @@ function App() {
     });
 
     const [priceInfo, setPriceInfo] = useState({
-        totalPrice: "",
         quantity: "",
+        profitMargin: "",
       });
 
   const handleQuote = () => {
@@ -31,6 +33,16 @@ function App() {
     setView("jobInfoView");
   }
 
+  const handleTotalPrice = (holdPrice) => {
+    setTotalPrice(holdPrice)
+
+  }
+
+  function handleTotalPriceChange(e) {
+    setTotalPrice(e.target.value)
+
+  }
+console.log(totalPrice)
   function handleJobChange(e) {
     const value = e.target.value;
     setJob({
@@ -46,7 +58,7 @@ function App() {
       ...priceInfo,
       [e.target.name]: value
     });
-    console.log(priceInfo)
+    console.log(totalPrice)
   }
 
   return (
@@ -56,7 +68,9 @@ function App() {
         <Quote handleOutput={handleOutput}
                handlePriceChange={handlePriceChange}
                quantity={priceInfo.quantity}
-               totalPrice={priceInfo.totalPrice}
+               totalPrice={totalPrice}
+               profitMargin={priceInfo.profitMargin}
+               handleTotalPrice={handleTotalPrice}
                />
       </div>
       }
@@ -67,7 +81,9 @@ function App() {
                 customer={job.customer}
                 jobName={job.jobName}
                 itemNumber={job.itemNumber}
-                itemColor={job.itemColor}/>
+                itemColor={job.itemColor}
+                totalPrice={totalPrice}
+                handlePriceChange={handlePriceChange}/>
       </div>
       }
     {view === 'jobInfoView' &&

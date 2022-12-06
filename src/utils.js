@@ -8,35 +8,12 @@ function priceMargin(profitMargin) {
 
 }
 
-function printing({ printingCost }) {
-  let costLog = [];
+
+function getPrice(profitMargin, totalCost) {
+  return parseFloat(totalCost) / parseFloat(profitMargin);
 
 }
 
-function loopLoc({ numberOfLocations }) {
-  let i = 0;
-  while {
-    i++;
-    
-  }
-}
 
-function getPrice(cost, profitMargin) {
-  let price = parseFloat(cost) / parseFloat(profitMargin);
 
-}
-
-function Printing() {
-  return(
-  <>
-  <Form.Group>
-    <Form.Label htmlFor="printingCost">{`Printing Cost: `}</Form.Label>
-    <Form.Control    name="printingCost"  size="sm" />
-  </Form.Group>
-  </>
-  )
-}
-
-export { priceMargin, getPrice }
-
-export default Printing
+export default getPrice 
