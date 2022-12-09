@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
+import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import '../App.scss';
 
-function InputVal({value, handleChange, name, text }) {
+export default function InputVal({value, handleChange, name, text, disabledTog }) {
   return (
     <>
       <Form.Group controlId={name}>
@@ -18,12 +19,11 @@ function InputVal({value, handleChange, name, text }) {
                           onChange={handleChange}
                           text={text}
                           size="sm"
+                          disabled={disabledTog}
                           />
           </Col>
         </Row>
       </Form.Group>
     </>
-  )
+  );
 }
-
-export default InputVal

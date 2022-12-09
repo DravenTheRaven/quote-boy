@@ -12,10 +12,9 @@
 
 .appWrap {
   border: 5px solid $secondary;
-  height: 50%;
-  width: 35%;
+  height: 65%;
+  width: 40%;
   margin: auto;
-  margin-top: 10%;
 }
 
 #wrap {
@@ -35,16 +34,15 @@
 }
 
 .quoteCard {
-  height: 85%;
+  height: 65%;
   border: solid 2px purple;
 }
 
-#buttonWrap {
+.buttonWrap {
   height: 15%
 }
 
 .quoteButtonContainer {
-  border: 2px solid $info;
   height: 100%;
 
 
