@@ -9,18 +9,15 @@ import 'App.scss';
 
 export default function PrintingCard({ disabledTog, printingCost, locationCost, inputAction, addLocation }) {
   let locationNumber = 1;
-  let holdArr = [];
+
   function handleLocationPush() {
-    addLocation()
-    holdArr.push({
-      id: locationNumber++,
-      cost: parseFloat(locationCost)});
-    
-    
+    addLocation()   
   }
-  let locations = holdArr.map(location => 
-  <li key={`Location${locationNumber}`}>{location.cost}</li>) 
-console.log(holdArr)
+
+  let locations = printingCost.map(location => 
+  <li key={locationNumber++}>{`Location ${locationNumber} Cost: ${location}`}</li>) 
+
+
   return (
     <>
       <Card>

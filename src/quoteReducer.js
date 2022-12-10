@@ -62,7 +62,7 @@ export default function quoteReducer(quoteState, action) {
       return {
         ...quoteState,
         printingCost: quoteState.printingCost.concat(quoteState.locationCost),
-        locationCost: 0
+        locationCost: ""
       }
     }
   }

@@ -19,10 +19,8 @@ function QuoteView() {
     setupCost: 0,
     setups: 0,
     locationCost: 0,
-    printingCost: [],
+    printingCost: [0],
     profitMargin: 0,
-    totalCost: 0,
-    totalPrice: 0,
     show: 1,
     valSaved: 0,
     customerName: "",
@@ -98,7 +96,7 @@ function QuoteView() {
             <div className="quoteCard">
               <PrintingCard inputAction={inputAction}
                             disabledTog={quoteState.disabledTog}
-                            locationCost={quoteState.loactionCost}
+                            locationCost={quoteState.locationCost}
                             printingCost={quoteState.printingCost}
                             addLocation={addLocation}/>
             </div>
@@ -106,7 +104,14 @@ function QuoteView() {
           { quoteState.show === 5 &&
             <div className="quoteCard">
               <PriceCard inputAction={inputAction}
-                         disabledTog={quoteState.disabledTog}/>
+                         disabledTog={quoteState.disabledTog}
+                         profitMargin={quoteState.profitMargin}
+                         printingCost={quoteState.printingCost}
+                         blankCost={quoteState.blankCost}
+                         setupCost={quoteState.setupCost}
+                         setups={quoteState.setups}
+                         quantity={quoteState.quantity}
+                         />
             </div>
           }
           <div className="buttonWrap">
