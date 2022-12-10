@@ -1,26 +1,18 @@
 import React from 'react';
-import InputVal from 'components/InputVal.js';
-import BlankCard from 'views/quoteView/BlankCard.js';
-import SetupCard from 'views/quoteView/SetupCard.js';
-import PrintingCard from 'views/quoteView/PrintingCard.js';
-import PriceCard from 'views/quoteView/PriceCard.js';
-import JobInfoView from 'views/JobInfoView.js'
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import {InputVal, BlankCard, SetupCard, PrintingCard, PriceCard, JobInfoView, Button, Col, Row} from 'index.js'
 import { useReducer } from 'react'
 import quoteReducer from 'quoteReducer.js'
 import 'App.scss';
 
 function QuoteView() {
   const initialState = {
-    blankCost: 0,
-    quantity: 0,
-    setupCost: 0,
-    setups: 0,
-    locationCost: 0,
-    printingCost: [0],
-    profitMargin: 0,
+    blankCost: "",
+    quantity: "",
+    setupCost: "",
+    setups: "",
+    locationCost: "",
+    printingCost: [],
+    profitMargin: "",
     show: 1,
     valSaved: 0,
     customerName: "",
@@ -59,8 +51,6 @@ function QuoteView() {
     });    
   };
 
-  console.log(quoteState.printingCost)
-  console.log(quoteState.locationCost)
   return (
     <>
       <div id="wrap">
@@ -115,16 +105,22 @@ function QuoteView() {
             </div>
           }
           <div className="buttonWrap">
+            <Row>
+            <Col>
             {(quoteState.valSaved === 0 && quoteState.disabledTog === false) &&
               <div className="quoteButtonContainer">
                 <Button onClick={handleClick}>Submit</Button>
               </div>
             }
+            </Col>
+            <Col>
             {(quoteState.valSaved === 1 && quoteState.disabledTog === true) &&
               <div className="quoteButtonContainer">
                 <Button onClick={handleMakeAChange}>Make Changes</Button>
               </div>
             }
+            </Col>
+            </Row>
           </div>
           <div className="buttonWrap">
             {quoteState.valSaved === 1 &&

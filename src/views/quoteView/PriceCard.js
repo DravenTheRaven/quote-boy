@@ -1,35 +1,29 @@
 import React from 'react';
 import InputVal from 'components/InputVal.js';
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
+import { getSetupPiece, getTotalPrint, getTotalCost, getFinalMargin, getTotalPrice, getProfit, getMarkup } from 'utils/utils.js'
 import 'App.scss';
 
 export default function PriceCard({ profitMargin, printingCost, blankCost, setupCost, setups, quantity, inputAction }) {
-  let totalPrint = printingCost.reduce((previousValue, currentValue) => parseFloat(previousValue) + parseFloat(currentValue))
-  
-  console.log(`total printing ${totalPrint}`)
-  let setupPiece = (parseFloat(setups) * parseFloat(setupCost)) / parseFloat(quantity)
-  let totalCost = (parseFloat(blankCost) + parseFloat(setupPiece) + parseFloat(totalPrint))
-  let finalMargin = ((100 - parseFloat(profitMargin)) / 100)
-  let totalPrice = parseFloat(totalCost) / parseFloat(finalMargin)
-  console.log(finalMargin)
+  let totalPrint = getTotalPrint(printingCost)
+  let setupPiece = getSetupPiece(setups, setupCost, quantity)
+  let totalCost = getTotalCost(blankCost, setupPiece, totalPrint)
+  let finalMargin = getFinalMargin(profitMargin)
+  let totalPrice = getTotalPrice(totalCost, finalMargin)
+  let profit = getProfit(totalPrice, totalCost)
+  let markup = getMarkup(profit, totalCost)
+
   return (
     <>
-      <InputVal name="toalCost"
-                text="Total Cost"
-                value={totalCost}
-                readonly
-                />
+      <p>{`Total Cost: \$${(Math.round((totalCost + Number.EPSILON) * 100) / 100).toFixed(2)}`}</p>
       <InputVal name="profitMargin"
                 text="Profit Margin"
                 value={profitMargin}
                 handleChange={inputAction}
                 />
-      <InputVal name="totalPrice"
-                text="Price"
-                value={totalPrice}
-                readonly
-                />
+      <p>{`Price: \$${(Math.round((totalPrice + Number.EPSILON) * 100) / 100).toFixed(2)}`}</p>
+      <p>{`Profit: \$${(Math.round((profit + Number.EPSILON) * 100) / 100).toFixed(2)}`}</p>
+      <p>{`Markup: \$${(Math.round((markup + Number.EPSILON) * 100) / 100).toFixed(2)}`}</p>
+                
     </>
   )
 }

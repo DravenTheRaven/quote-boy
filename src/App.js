@@ -4,7 +4,7 @@ import quoteReducer from 'quoteReducer.js'
 import 'App.scss';
 
 export default function App() {
-
+  
 
   return (
     <div id="appContain">

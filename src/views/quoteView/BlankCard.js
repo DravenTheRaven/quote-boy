@@ -14,6 +14,8 @@ export default function BlankCard({ inputAction, blankCost, disabledTog }) {
                   value={blankCost}
                   disabledTog={disabledTog}
                   />
+        <Form.Check type="switch" label="2XLs?"/>
+        <Form.Check type="switch" label="3XLs?"/>
         <InputVal name='twoXLCost'
                   text='2XL Cost'
                   handleChange={inputAction}

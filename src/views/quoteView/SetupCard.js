@@ -1,6 +1,5 @@
 import React from 'react';
 import InputVal from 'components/InputVal.js'
-import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import 'App.scss';
 
@@ -26,11 +25,7 @@ export default function SetupCard({ inputAction, setups, setupCost, disabledTog,
                   value={quantity}                  
                   disabledTog={true}
                   />
-        <InputVal name="setupPiece" 
-                  text='Setup Per Piece'
-                  value={setupPiece}                
-                  disabledTog={true}
-                   />
+        <p>{`Setup per Piece: \$${(Math.round((setupPiece + Number.EPSILON) * 100) / 100).toFixed(2)}`}</p>
       </Card>
     </>
   );
