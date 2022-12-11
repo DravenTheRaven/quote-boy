@@ -15,16 +15,16 @@ export default function quoteReducer(quoteState, action) {
       }
     }
     case 'continue': {
-      if(quoteState.show < 1) {
+      if(quoteState.show < 1 || quoteState.show === 6) {
         return {
           ...quoteState,
           show: 1,        
         }
-      } else if(quoteState.show >= 5) {
+      } else if(quoteState.show > 6) {
         return {
           ...quoteState,
-          show: 5
-        }
+          show: 6
+        } 
       } else {
         return {
           ...quoteState,
@@ -40,10 +40,10 @@ export default function quoteReducer(quoteState, action) {
           ...quoteState,
           show: 1
         }
-      } else if(quoteState.show > 5) {
+      } else if(quoteState.show > 6) {
         return {
           ...quoteState,
-          show: 5
+          show: 6
         }
       } else {
         return {

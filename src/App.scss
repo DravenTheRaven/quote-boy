@@ -6,6 +6,12 @@
 
 
 
+
+
+ul {
+  list-style-type: none;
+}
+
 #appContain {
   border: 5px solid green;
   height: 100vh;
@@ -14,15 +20,15 @@
 
 .appWrap {
   border: 5px solid red;
-  height: 65%;
-  width: 50%;
+  height: 500px;
+  width: 500px;
   margin: auto;
-  padding: 5px;
+ 
 }
 
 #wrap {
   height: 100%;
-  width: 90%;
+  width: 95%;
   border: 2px solid orange;
   margin: auto;
   padding: 5px;
@@ -36,54 +42,67 @@
 }
 
 .row {
-  border: 2px solid rgb(12, 2, 104);
   width: 95%;
-  margin: auto;
-  padding: 15px;
+  margin: 10px auto;
+
 }
 
 .col {
-  width: 65%;
-  border: 1px solid rgb(207, 88, 172);
-  margin: 1px auto;
+  width: 80%;
+
+  margin: auto;
 }
 
 .form-group{
-  width: 85%;
-  margin: 2px auto;
-  border: solid 2px rgb(110, 135, 163);
+  width: 100%;
+  margin: auto;
+
   
 }
 
 .form-control{
-  width: 85%;
+  width: 50%;
   margin: 2px auto;
 }
 
 .form-label {
-  width: 50%;
+  width: 90%;
   margin: 2px auto;
 }
 
 .card {
   margin: auto;
-  margin-top: 5%;
+  margin-top: 2%;
   border: solid 2px rgb(76, 187, 25);
   
 }
 
 .quoteCard {
   height: 65%;
-  border: solid 2px purple;
-  margin: 5px auto;
+  margin: 15px auto 10px auto;
   width: 95%;
+  border: solid 2px rgb(76, 187, 25);
+  border-radius: 4%;
+  background-color: $light;
+  .row {
+    width: 100%;
+    height: 30%;
+
+    
+    .row {
+      border: solid 2px rgb(187, 25, 66);
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
 }
 
 .buttonWrap {
   height: 15%;
-  width: 50%;
+  width: 75%;
   margin: auto;
-  border: solid 2px rgb(155, 165, 182);
+
+ 
 }
 
 .quoteButtonContainer {
@@ -92,4 +111,18 @@
   
   
   margin: auto;
+}
+
+.chessSquare {
+  height: 12.5%;
+  
+  border: solid black;
+  margin: 0;
+  p {
+    text-align: center;
+  }
+}
+
+.chessRow {
+width: 12.5%
 }

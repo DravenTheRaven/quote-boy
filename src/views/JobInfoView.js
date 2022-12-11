@@ -42,14 +42,18 @@ export default function JobInfoView({ inputAction, customerName, jobName, itemNu
                     disabledTog={disabledTog}
                     />
         </Col>
-      </Row>                
+        </Row>
+        <Row>
+        <Col>
+                     
           <InputVal name="quantity"
                     text="Quantity"
                     handleChange={inputAction}
                     value={quantity}
                     disabledTog={disabledTog}
                     />
-
+                    </Col>
+</Row> 
       
     </>
   );

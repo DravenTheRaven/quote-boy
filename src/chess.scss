@@ -1,0 +1,15 @@
+@import "custom";
+
+.chessSquare {
+
+  border: solid black;
+  margin: 0;
+  p {
+    text-align: center;
+  }
+}
+
+.chessRow {
+  height: 100%;
+  
+}
